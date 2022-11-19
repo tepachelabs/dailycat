@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1='Welcome to Daily Cat!'
+  ul
+    for cat in cats
+      li
+        h2= "Today's quote MM/DD/YYYY"
+        p= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ante at diam imperdiet maximus.'
+        img(
+          src=cat.url,
+          alt='Cat Image'
+          class='cat-image'
+          )
