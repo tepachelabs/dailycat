@@ -10,19 +10,22 @@ const cats = [
     id: "es",
     url: "https://cdn2.thecatapi.com/images/es.jpg",
     width: 640,
-    height: 427
+    height: 427,
+    date: 'November 24th 2022',
   },
   {
     id: "189",
     url: "https://cdn2.thecatapi.com/images/189.gif",
     width: 500,
-    height: 281
+    height: 281,
+    date: 'November 23rd 2022',
   },
   {
     id: "dt8",
     url: "https://cdn2.thecatapi.com/images/dt8.jpg",
     width: 960,
-    height: 720
+    height: 720,
+    date: 'November 22nd 2022',
   }
 ];
 

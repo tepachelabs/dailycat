@@ -5,7 +5,7 @@ block content
   ul
     for cat in cats
       li
-        h2= "Today's quote MM/DD/YYYY"
+        h2= `Quote of ${cat.date}`
         p= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ante at diam imperdiet maximus.'
         img(
           src=cat.url,
