@@ -7,7 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 
 const app = express();
-// require('./scheduler');
+require('./scheduler');
 require('./db');
 
 // view engine setup
