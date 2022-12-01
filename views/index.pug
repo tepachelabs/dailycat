@@ -1,14 +1,17 @@
 extends layout
 
 block content
-  h1='Welcome to Daily Cat!'
-  ul
+  div(id='navbar')
+    h1(id='page-title')='Dailycat'
+  ul(id="cat-list")
     for cat in cats
-      li
-        h2= `Quote of ${cat.date}`
-        p= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ante at diam imperdiet maximus.'
+      li(class="cat-item")
         img(
           src=cat.url,
           alt='Cat Image'
           class='cat-image'
-          )
+        )
+        div(class='cat-data-wrapper')
+          h2(class='cat-date')= cat.date
+          p(class='cat-quote')= '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in ante at diam imperdiet maximus."'
+
