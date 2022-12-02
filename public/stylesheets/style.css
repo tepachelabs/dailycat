@@ -1,17 +1,17 @@
 body {
   margin: 0;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   -webkit-text-size-adjust: 100%;
 }
 
 #navbar {
   padding: 1rem;
-  background-color: #F0DBDB;
+  background-color: #f0dbdb;
 }
 
 #page-title {
   margin: 0;
-  color: #DBA39A;
+  color: #dba39a;
   font-size: 1.5rem;
 }
 
@@ -23,7 +23,7 @@ body {
 }
 
 .cat-item {
-  background-color: #DBA39A;
+  background-color: #dba39a;
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
 }
@@ -37,13 +37,13 @@ body {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
-  color: #FEFCF3;
+  color: #fefcf3;
 }
 
 .cat-quote {
   font-style: italic;
   font-size: 0.75rem;
-  color: #F5EBE0;
+  color: #f5ebe0;
 }
 
 .cat-image {

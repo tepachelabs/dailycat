@@ -9,6 +9,7 @@ const cat = new Cat({
   date: Date.now(),
 });
 
-cat.save()
-   .then(() => console.log('cat inserted to db'))
-   .catch(() => console.log('failed to insert :('));
+cat
+  .save()
+  .then(() => console.log('cat inserted to db'))
+  .catch(() => console.log('failed to insert :('));
