@@ -5,7 +5,7 @@ require('..');
 const { Cat } = require('../models/cat');
 const cat = new Cat({
   id: '1',
-  url: 'my-dummy-url',
+  url: 'https://cdn2.thecatapi.com/images/189.gif',
   date: Date.now(),
 });
 
