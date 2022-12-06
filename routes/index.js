@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const { cats } = require('../mock/data');
+const {Cat} = require("../db/models/cat")
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { cats });
+  Cat.find({}).then((result) => {
+    res.render('index', { cats: result });
+  }).catch(() => {
+    res.render('error', { cats:[] });
+  });
 });
 
 module.exports = router;
