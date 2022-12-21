@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {dateFormat} = require("../utils/date-reformat")
+const { dateFormat } = require('../utils/date-reformat');
 const { Cat } = require('../db/models/cat');
 
 /* GET home page. */
