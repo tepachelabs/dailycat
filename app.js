@@ -8,7 +8,10 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 // require('./scheduler');
-require('./db');
+const { connect } = require('./db');
+
+// connect db
+connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
