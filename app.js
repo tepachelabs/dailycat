@@ -8,7 +8,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 
 const app = express();
-// require('./scheduler');
+require('./scheduler');
 const { connect } = require('./db');
 
 // connect db
