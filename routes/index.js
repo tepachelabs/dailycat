@@ -1,17 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { dateFormat } = require('../utils/date-reformat');
-const { Cat } = require('../db/models/cat');
+const path = require('path');
 
-/* GET home page. */
-router.get('/', function (req, res) {
-  Cat.find({})
-    .then((result) => {
-      res.render('index', { cats: dateFormat(result) });
-    })
-    .catch(() => {
-      res.render('index', { cats: [] });
-    });
+router.get('/', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '/index.html'));
 });
 
 module.exports = router;
