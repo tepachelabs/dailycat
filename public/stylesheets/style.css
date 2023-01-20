@@ -1,4 +1,7 @@
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
   background-color: #f2f2f2;
   -webkit-text-size-adjust: 100%;
@@ -56,6 +59,49 @@ body {
 #empty-fallback {
   height: 100vh;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: grey;
+  width: 30rem;
+  height: 4rem;
+  border-radius: 10px;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+ul {
+  list-style: none;
+}
+
+.active {
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  color: grey;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+}
+
+.page {
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 2rem;
+}
+
+.btn:hover {
+  filter: brightness(0.9);
 }
