@@ -1,8 +1,33 @@
-const ITEMS_PER_PAGE = 10;
 const catList = document.getElementById('cat-list');
 const pageContainer = document.getElementById('page-container');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
 let currentPage = 1;
+let numberOfPages = 0;
+const ITEMS_PER_PAGE = 10;
 const PAGES_OFFSET = 3;
+
+const canGoNext = () => currentPage < numberOfPages;
+const canGoPrevious = () => currentPage > 1;
+
+nextBtn.addEventListener('click', () => {
+  if (canGoNext()) {
+    const nextPage = currentPage + 1;
+    currentPage = nextPage;
+
+    fetchPage(nextPage);
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (canGoPrevious()) {
+    const prevPage = currentPage - 1;
+    currentPage = prevPage;
+
+    fetchPage(prevPage);
+  }
+});
 
 /**
  *
@@ -49,26 +74,9 @@ const createPageItem = (number) => {
 };
 
 const assignPagination = () => {
-  // let nextBtn = document.querySelector('.next');
-  // let prevBtn = document.querySelector('.prev');
-  let pages = document.querySelectorAll('.page');
-  // nextBtn.addEventListener('click', function () {
-  //   if (currentPage == pages.length - 1) {
-  //     return;
-  //   }
-  //   pages[currentPage++].classList.remove('active');
-  //   pages[currentPage].classList.add('active');
-  // });
-  //
-  // prevBtn.addEventListener('click', function () {
-  //   if (currentPage == 0) {
-  //     return;
-  //   }
-  //   pages[currentPage--].classList.remove('active');
-  //   pages[currentPage].classList.add('active');
-  // });
+  const pages = document.querySelectorAll('.page');
 
-  pages.forEach((page, index) => {
+  pages.forEach((page) => {
     const pageIndex = parseInt(page.innerText);
 
     if (pageIndex === currentPage) {
@@ -84,6 +92,14 @@ const assignPagination = () => {
       fetchPage(pageIndex);
     });
   });
+
+  canGoPrevious()
+    ? prevBtn.classList.remove('disabled')
+    : prevBtn.classList.add('disabled');
+
+  canGoNext()
+    ? nextBtn.classList.remove('disabled')
+    : nextBtn.classList.add('disabled');
 
   window.scrollTo({
     top: 0,
@@ -106,14 +122,13 @@ const fetchPage = (pageNumber = 1) => {
       data.forEach((cat) => {
         catList.appendChild(createCatItem(cat.date, cat.url));
       });
-      const numberOfPages = Math.ceil(total / ITEMS_PER_PAGE);
+      numberOfPages = Math.ceil(total / ITEMS_PER_PAGE);
 
       const minRange = currentPage - PAGES_OFFSET;
       const maxRange = currentPage + PAGES_OFFSET;
 
       for (let i = 0; i < numberOfPages; i++) {
         if (i + 1 >= minRange && i + 1 <= maxRange) {
-          console.log(i + 1, minRange, maxRange);
           pageContainer.appendChild(createPageItem(i + 1));
         }
       }
