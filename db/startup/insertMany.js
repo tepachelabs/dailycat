@@ -1,4 +1,5 @@
 // Run node db/startup/insertMany
+require('dotenv').config();
 
 const { connect } = require('..');
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { dateFormat } = require('../../utils/date-reformat');
+const { catsWithDateFormatted } = require('../../utils/date-reformat');
 const { Cat } = require('../../db/models/cat');
 const { PAGINATION_LIMIT } = require('../../utils/contants');
 
@@ -20,7 +20,7 @@ router.get('/cats', function (req, res) {
       Cat.countDocuments({}, (err, count) => {
         res.status(200).json({
           total: count,
-          data: dateFormat(result),
+          data: catsWithDateFormatted(result),
         });
       });
     })

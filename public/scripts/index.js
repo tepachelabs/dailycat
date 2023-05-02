@@ -120,7 +120,8 @@ const fetchPage = (pageNumber = 1) => {
     .then((result) => {
       const { data, total } = result;
       data.forEach((cat) => {
-        catList.appendChild(createCatItem(cat.date, cat.url));
+        console.log(cat);
+        catList.appendChild(createCatItem(cat.date, cat.url, cat.quote));
       });
       numberOfPages = Math.ceil(total / ITEMS_PER_PAGE);
 

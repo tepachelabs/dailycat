@@ -20,7 +20,7 @@ CAT_API_KEY=<Your-Cat-API-key>
 1.  You first need to install node dependencies.
 
 ```console
-npm run build
+npm install
 ```
 
 2.  To add data to your database you can run either of our commands in `db/startup/`.

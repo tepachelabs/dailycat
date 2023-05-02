@@ -6,6 +6,7 @@ const catSchema = new Schema(
   {
     id: String,
     url: String,
+    quote: String,
     date: Date,
   },
   {

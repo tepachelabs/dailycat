@@ -1,6 +1,11 @@
 const schedule = require('node-schedule');
-const fetchRandomCatImage = require('../services');
+
+// ** Models
 const { Cat } = require('../db/models/cat');
+
+// ** Utils
+const fetchRandomCatImage = require('../services');
+const { getRandomQuote } = require('../utils/quotes');
 
 const rule = new schedule.RecurrenceRule();
 
@@ -17,6 +22,7 @@ const job = schedule.scheduleJob(rule, function () {
       id,
       url,
       date: Date.now(),
+      quote: getRandomQuote(),
     });
 
     cat
