@@ -115,7 +115,7 @@ const fetchPage = (pageNumber = 1) => {
   pageContainer.innerHTML = '';
   catList.innerHTML = '';
 
-  fetch(`http://localhost:3000/api/cats?page=${pageNumber}`)
+  fetch(`/api/cats?page=${pageNumber}`)
     .then((res) => res.json())
     .then((result) => {
       const { data, total } = result;
