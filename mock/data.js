@@ -5,6 +5,11 @@
  *
  * https://api.thecatapi.com/
  */
+
+const today = Date.now();
+const oneDayAgo = today - 24 * 60 * 60 * 1000;
+const twoDaysAgo = today - 2 * 24 * 60 * 60 * 1000;
+
 const cats = [
   {
     id: 'es',
@@ -14,12 +19,12 @@ const cats = [
   {
     id: '189',
     url: 'https://cdn2.thecatapi.com/images/189.gif',
-    date: Date.now(),
+    date: oneDayAgo,
   },
   {
     id: 'dt8',
     url: 'https://cdn2.thecatapi.com/images/dt8.jpg',
-    date: Date.now(),
+    date: twoDaysAgo,
   },
 ];
 

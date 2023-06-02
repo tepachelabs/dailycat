@@ -16,6 +16,7 @@ router.get('/cats', function (req, res) {
   Cat.find({})
     .limit(PAGINATION_LIMIT)
     .skip(skip)
+    .sort({ date: -1 })
     .then((result) => {
       Cat.countDocuments({}, (err, count) => {
         res.status(200).json({
