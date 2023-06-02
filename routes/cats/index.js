@@ -14,9 +14,9 @@ router.get('/cats', function (req, res) {
   const skip = (page - 1) * PAGINATION_LIMIT;
 
   Cat.find({})
+    .sort({ date: -1 })
     .limit(PAGINATION_LIMIT)
     .skip(skip)
-    .sort({ date: -1 })
     .then((result) => {
       Cat.countDocuments({}, (err, count) => {
         res.status(200).json({
