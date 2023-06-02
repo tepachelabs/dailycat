@@ -21,12 +21,14 @@ const cats = [
   {
     id: '189',
     url: 'https://cdn2.thecatapi.com/images/189.gif',
+    date: oneDayAgo,
     quote: getRandomQuote(),
   },
   {
     id: 'dt8',
     url: 'https://cdn2.thecatapi.com/images/dt8.jpg',
     date: twoDaysAgo,
+    quote: getRandomQuote(),
   },
 ];
 
