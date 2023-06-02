@@ -1,3 +1,9 @@
+const { getRandomQuote } = require('../utils/quotes');
+
+const today = Date.now();
+const oneDayAgo = today - 24 * 60 * 60 * 1000;
+const twoDaysAgo = today - 2 * 24 * 60 * 60 * 1000;
+
 /**
  *
  * This is real data from thecatapi. Keeping it here so we don't have to call
@@ -5,21 +11,17 @@
  *
  * https://api.thecatapi.com/
  */
-
-const today = Date.now();
-const oneDayAgo = today - 24 * 60 * 60 * 1000;
-const twoDaysAgo = today - 2 * 24 * 60 * 60 * 1000;
-
 const cats = [
   {
     id: 'es',
     url: 'https://cdn2.thecatapi.com/images/es.jpg',
     date: Date.now(),
+    quote: getRandomQuote(),
   },
   {
     id: '189',
     url: 'https://cdn2.thecatapi.com/images/189.gif',
-    date: oneDayAgo,
+    quote: getRandomQuote(),
   },
   {
     id: 'dt8',
