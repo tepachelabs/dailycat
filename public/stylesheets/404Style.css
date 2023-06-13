@@ -1,0 +1,21 @@
+body {
+  background-color: #f2f2f2;
+}
+
+#Uh-Oh {
+  color: #dba39a;
+  text-align: center;
+  font-size: 4rem;
+}
+
+#hanging-cat-img {
+  margin: auto;
+  height: 30rem;
+  display: block;
+}
+
+#error-404 {
+  text-align: center;
+  color: #dba39a;
+  font-size: 4rem;
+}
