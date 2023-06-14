@@ -14,4 +14,24 @@
   text-align: center;
   color: #dba39a;
   font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+#home-link {
+  text-align: center;
+  font-size: 3rem;
+  color: #dba39a;
+  display: block;
+}
+
+@media (max-height: 970px) {
+  #Uh-Oh {
+    font-size: 2rem;
+  }
+  #error-404 {
+    font-size: 2rem;
+  }
+  #home-link {
+    font-size: 2rem;
+  }
 }
