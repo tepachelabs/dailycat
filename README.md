@@ -1,6 +1,6 @@
 # dailycat.api
 
-dailycat.api is a fun project where cats with inspirational quotes get posted everyday!
+dailycat is a fun project where cats with inspirational quotes get posted everyday!
 
 ## Requirements
 
