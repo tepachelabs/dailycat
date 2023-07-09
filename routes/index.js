@@ -9,30 +9,50 @@ const { Cat } = require('../db/models/cat');
 const { PAGINATION_LIMIT } = require('../utils/contants');
 const { catsWithDateFormatted } = require('../utils/date-reformat');
 
-router.get('/', (req, res) => {
-  Cat.find({})
-    .sort({ date: -1 })
-    .limit(PAGINATION_LIMIT)
-    .skip(0)
-    .then((result) => {
-      Cat.countDocuments({}, (err, count) => {
-        res.render('pages/index', {
-          total: count,
-          data: catsWithDateFormatted(result, {
-            cats: result,
-          }),
-        });
-      });
-    })
-    .catch((error) => {
-      res.render('pages/index');
+const handleRequest = async (req, res, skip) => {
+  console.log(skip);
+
+  try {
+    const cats = await Cat.find({})
+      .limit(PAGINATION_LIMIT)
+      .sort({ date: -1 })
+      .skip(skip);
+
+    const count = await Cat.countDocuments({});
+
+    res.render('pages/index', {
+      total: count,
+      data: catsWithDateFormatted(cats),
     });
+  } catch (error) {
+    res.render('pages/error');
+  }
+};
+
+router.get('/:page', async (req, res) => {
+  let rawPageNumber = req.params.page;
+
+  if (isNaN(rawPageNumber)) {
+    res.render('pages/404');
+    return;
+  }
+
+  let pageNumber = parseInt(rawPageNumber);
+
+  const skip = pageNumber <= 0 ? 0 : (pageNumber - 1) * PAGINATION_LIMIT;
+
+  await handleRequest(req, res, skip);
+});
+
+router.get('/', async (req, res) => {
+  const skip = 0;
+  await handleRequest(req, res, skip);
 });
 
 //The 404 Route (ALWAYS Keep this as the last route)
 
 router.get('*', (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, '../public/404.html'));
+  res.render('pages/404');
 });
 
 module.exports = router;
