@@ -1,0 +1,18 @@
+<%- include('../partials/head'); %>
+<%- include('../partials/navbar'); %>
+<main>
+    <ul id="cat-list">
+        <% data.forEach(function(cat){ %>
+            <li class="cat-item">
+                <img class="cat-image" src="<%= cat.url %>" alt="" />
+                <div class="cat-data-wrapper">
+                    <h2 class="cat-date"><%= cat.date %></h2>
+                    <p class="cat-quote">
+                        <%= cat.quote %>
+                    </p>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+</main>
+<%- include('../partials/footer'); %>
