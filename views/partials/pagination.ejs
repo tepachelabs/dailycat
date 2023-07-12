@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="prev btn">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+    </div>
+    <ul id="page-container">
+        <%
+            let numberOfPages = Math.ceil(total / paginationLimit);
+            const minRange = pageNumber - pageOffset;
+            const maxRange = pageNumber + pageOffset;
+        %>
+        <% for (let i = 1; i <= numberOfPages; i++) {%>
+            <% if (i >= minRange && i <= maxRange && i <= numberOfPages) { %>
+                <li class="page <%= pageNumber === i ? 'active' : '' %>">
+                    <a href="/<%= i %>">
+                        <%= i %>
+                    </a>
+                </li>
+            <%}%>
+        <%}%>
+    </ul>
+    <div class="next btn">
+        <i class="fa-solid fa-circle-chevron-right"></i>
+    </div>
+</div>

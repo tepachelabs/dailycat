@@ -1,17 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 // ** Mongo Model
 const { Cat } = require('../db/models/cat');
 
 // ** Utils
-const { PAGINATION_LIMIT } = require('../utils/contants');
+const { PAGES_OFFSET, PAGINATION_LIMIT } = require('../utils/contants');
 const { catsWithDateFormatted } = require('../utils/date-reformat');
 
-const handleRequest = async (req, res, skip) => {
-  console.log(skip);
-
+const handleRequest = async (req, res, skip, pageNumber = 1) => {
   try {
     const cats = await Cat.find({})
       .limit(PAGINATION_LIMIT)
@@ -21,6 +18,9 @@ const handleRequest = async (req, res, skip) => {
     const count = await Cat.countDocuments({});
 
     res.render('pages/index', {
+      pageNumber,
+      pageOffset: PAGES_OFFSET,
+      paginationLimit: PAGINATION_LIMIT,
       total: count,
       data: catsWithDateFormatted(cats),
     });
@@ -41,7 +41,7 @@ router.get('/:page', async (req, res) => {
 
   const skip = pageNumber <= 0 ? 0 : (pageNumber - 1) * PAGINATION_LIMIT;
 
-  await handleRequest(req, res, skip);
+  await handleRequest(req, res, skip, pageNumber);
 });
 
 router.get('/', async (req, res) => {
