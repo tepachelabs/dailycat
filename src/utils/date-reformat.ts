@@ -1,5 +1,10 @@
-const moment = require('moment');
-const catsWithDateFormatted = (cats) => {
+// ** Third Party
+import moment from 'moment';
+
+// ** Types
+import { Cat } from '../db/models/catModel';
+
+export const catsWithDateFormatted = (cats: Cat[]) => {
   return cats.map((cat) => {
     return {
       id: cat.id,
@@ -9,5 +14,3 @@ const catsWithDateFormatted = (cats) => {
     };
   });
 };
-
-module.exports = { catsWithDateFormatted };

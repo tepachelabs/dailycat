@@ -1,21 +1,27 @@
-const express = require('express');
+import express, { Request, Response } from 'express';
 const router = express.Router();
 
 // ** Mongo Model
-const { Cat } = require('../db/models/cat');
+import { CatModel } from '../db/models/catModel';
 
 // ** Utils
-const { PAGES_OFFSET, PAGINATION_LIMIT } = require('../utils/contants');
-const { catsWithDateFormatted } = require('../utils/date-reformat');
+import { PAGES_OFFSET, PAGINATION_LIMIT } from '../utils/contants';
+import { catsWithDateFormatted } from '../utils/date-reformat';
 
-const handleRequest = async (req, res, skip, pageNumber = 1) => {
+// @ts-ignore
+const handleRequest = async (
+  req: Request,
+  res: Response,
+  skip: number,
+  pageNumber: number = 1
+) => {
   try {
-    const cats = await Cat.find({})
+    const cats = await CatModel.find({})
       .limit(PAGINATION_LIMIT)
       .sort({ date: -1 })
       .skip(skip);
 
-    const count = await Cat.countDocuments({});
+    const count = await CatModel.countDocuments({});
 
     res.render('pages/index', {
       pageNumber,
@@ -29,8 +35,9 @@ const handleRequest = async (req, res, skip, pageNumber = 1) => {
   }
 };
 
-router.get('/:page', async (req, res) => {
-  let rawPageNumber = req.params.page;
+// @ts-ignore
+router.get('/:page', async (req: Request, res: Response) => {
+  let rawPageNumber = req.params.page as any;
 
   if (isNaN(rawPageNumber)) {
     res.render('pages/404');
@@ -44,15 +51,16 @@ router.get('/:page', async (req, res) => {
   await handleRequest(req, res, skip, pageNumber);
 });
 
-router.get('/', async (req, res) => {
+// @ts-ignore
+router.get('/', async (req: Request, res: Response) => {
   const skip = 0;
   await handleRequest(req, res, skip);
 });
 
 //The 404 Route (ALWAYS Keep this as the last route)
-
+// @ts-ignore
 router.get('*', (req, res) => {
   res.render('pages/404');
 });
 
-module.exports = router;
+export default router;

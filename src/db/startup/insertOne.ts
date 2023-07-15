@@ -1,12 +1,15 @@
 // Run node db/startup/insertOne
-require('dotenv').config();
+import dotenv from 'dotenv';
 
-const { connect } = require('..');
+dotenv.config();
 
-const { getRandomQuote } = require('../../utils/quotes');
+import { connect } from '..';
 
-const { Cat } = require('../models/cat');
-const cat = new Cat({
+import { getRandomQuote } from '../../utils/quotes';
+
+import { CatModel } from '../models/catModel';
+
+const cat = new CatModel({
   id: '1',
   url: 'https://cdn2.thecatapi.com/images/189.gif',
   date: Date.now(),

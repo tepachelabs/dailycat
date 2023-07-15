@@ -1,13 +1,14 @@
 // Run node db/startup/insertMany
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const { connect } = require('..');
+import { connect } from '../index';
 
-const { cats } = require('../../mock/data');
-const { Cat } = require('../models/cat');
+import { cats } from '../../mock/data';
+import { CatModel } from '../models/catModel';
 
 connect(() => {
-  Cat.insertMany(cats)
+  CatModel.insertMany(cats)
     .then(() => console.log('The data has been added to the database!'))
     .catch((err) => console.log(err))
     .finally(() => process.exit());
