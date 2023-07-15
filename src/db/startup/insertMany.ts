@@ -1,10 +1,11 @@
 // Run node db/startup/insertMany
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const { connect } = require('..');
+import { connect } from '../index';
 
-const { cats } = require('../../mock/data');
-const { Cat } = require('../models/cat');
+import { cats } from '../../mock/data';
+import { Cat } from '../models/cat';
 
 connect(() => {
   Cat.insertMany(cats)

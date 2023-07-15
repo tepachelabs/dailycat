@@ -46,11 +46,7 @@ const quotes = [
   'Do what you can',
 ];
 
-const getRandomQuote = () => {
+export const getRandomQuote = () => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   return quotes[randomIndex];
-};
-
-module.exports = {
-  getRandomQuote,
 };

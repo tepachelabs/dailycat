@@ -1,13 +1,14 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // ** Mongo Model
-const { Cat } = require('../db/models/cat');
+import { Cat } from '../db/models/cat';
 
 // ** Utils
-const { PAGES_OFFSET, PAGINATION_LIMIT } = require('../utils/contants');
-const { catsWithDateFormatted } = require('../utils/date-reformat');
+import { PAGES_OFFSET, PAGINATION_LIMIT } from '../utils/contants';
+import { catsWithDateFormatted } from '../utils/date-reformat';
 
+// @ts-ignore
 const handleRequest = async (req, res, skip, pageNumber = 1) => {
   try {
     const cats = await Cat.find({})
@@ -29,8 +30,9 @@ const handleRequest = async (req, res, skip, pageNumber = 1) => {
   }
 };
 
+// @ts-ignore
 router.get('/:page', async (req, res) => {
-  let rawPageNumber = req.params.page;
+  let rawPageNumber = req.params.page as any;
 
   if (isNaN(rawPageNumber)) {
     res.render('pages/404');
@@ -44,15 +46,16 @@ router.get('/:page', async (req, res) => {
   await handleRequest(req, res, skip, pageNumber);
 });
 
+// @ts-ignore
 router.get('/', async (req, res) => {
   const skip = 0;
   await handleRequest(req, res, skip);
 });
 
 //The 404 Route (ALWAYS Keep this as the last route)
-
+// @ts-ignore
 router.get('*', (req, res) => {
   res.render('pages/404');
 });
 
-module.exports = router;
+export default router;

@@ -1,8 +1,8 @@
-const { getRandomQuote } = require('../utils/quotes');
+import { getRandomQuote } from '../utils/quotes';
 
 const today = Date.now();
 
-const cats = [];
+export const cats: any = [];
 
 for (let i = 0; i < 100; i++) {
   const cat = {
@@ -14,7 +14,3 @@ for (let i = 0; i < 100; i++) {
 
   cats.push(cat);
 }
-
-module.exports = {
-  cats,
-};

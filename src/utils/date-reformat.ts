@@ -1,6 +1,6 @@
 const moment = require('moment');
-const catsWithDateFormatted = (cats) => {
-  return cats.map((cat) => {
+export const catsWithDateFormatted = (cats: any) => {
+  return cats.map((cat: any) => {
     return {
       id: cat.id,
       url: cat.url,
@@ -9,5 +9,3 @@ const catsWithDateFormatted = (cats) => {
     };
   });
 };
-
-module.exports = { catsWithDateFormatted };

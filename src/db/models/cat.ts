@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
@@ -16,6 +16,4 @@ const catSchema = new Schema(
 
 const Cat = mongoose.model('Cat', catSchema);
 
-module.exports = {
-  Cat,
-};
+export { Cat };
