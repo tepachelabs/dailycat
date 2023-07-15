@@ -1,4 +1,4 @@
-// Run node db/startup/insertOne
+// Run ts-node src/db/startup/insertOne
 import dotenv from 'dotenv';
 
 dotenv.config();

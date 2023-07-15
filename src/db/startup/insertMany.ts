@@ -1,4 +1,4 @@
-// Run node db/startup/insertMany
+// Run ts-node src/db/startup/insertMany
 import dotenv from 'dotenv';
 dotenv.config();
 

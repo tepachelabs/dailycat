@@ -23,18 +23,18 @@ CAT_API_KEY=<Your-Cat-API-key>
 npm install
 ```
 
-2.  To add data to your database you can run either of our commands in `db/startup/`.
+2.  To add data to your database you can run either of our commands in `src/db/startup/`.
 
 - To insert just one element, you can use the following command:
 
 ```console
-node db/startup/insertOne
+ts-node src/db/startup/insertOne
 ```
 
 - or if you wanna insert multiple elements, you can use:
 
 ```console
-node db/startup/insertMany
+ts-node src/db/startup/insertMany
 ```
 
 ## Running the projects
