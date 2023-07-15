@@ -7,9 +7,9 @@ import { connect } from '..';
 
 import { getRandomQuote } from '../../utils/quotes';
 
-import { Cat } from '../models/cat';
+import { CatModel } from '../models/catModel';
 
-const cat = new Cat({
+const cat = new CatModel({
   id: '1',
   url: 'https://cdn2.thecatapi.com/images/189.gif',
   date: Date.now(),

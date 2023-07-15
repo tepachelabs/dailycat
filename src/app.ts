@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import createError from 'http-errors';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
@@ -34,15 +34,12 @@ app.use('/', indexRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-//
-// // error handler
-// //@ts-ignore
-app.use(function (err: any, req: any, res: any, next: any) {
+
+// Error handler
+app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  console.log(err);
 
   // render the error page
   res.status(err.status || 500);

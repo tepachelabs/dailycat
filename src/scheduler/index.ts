@@ -1,7 +1,7 @@
 import schedule from 'node-schedule';
 
 // ** Models
-import { Cat } from '../db/models/cat';
+import { CatModel } from '../db/models/catModel';
 
 // ** Utils
 import { fetchRandomCatImage } from '../services';
@@ -10,10 +10,10 @@ import { getRandomQuote } from '../utils/quotes';
 // second | minute | hour | day-of-month | month | day of week
 // https://crontab.guru/every-day
 const job = schedule.scheduleJob('0 0 * * *', function () {
-  fetchRandomCatImage().then((res: any) => {
+  fetchRandomCatImage().then((res) => {
     const { id, url } = res.data[0];
 
-    const cat = new Cat({
+    const cat = new CatModel({
       id,
       url,
       date: Date.now(),
