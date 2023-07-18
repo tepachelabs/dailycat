@@ -1,4 +1,4 @@
-# dailycat.api
+# dailycat
 
 dailycat is a fun project where cats with inspirational quotes get posted everyday!
 
