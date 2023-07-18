@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta
             name="description"
-            content="Daily cat pictures with inspirational quotes!"
+            content="<%= pageNumber === 1 ? "Daily cat pictures with inspirational quotes!" : `Daily Cat - Page (${pageNumber})` %>"
     />
     <meta name="keywords" content="Cats, Quotes, Daily" />
     <meta name="author" content="Tepachelabs" />
@@ -19,7 +21,7 @@
             referrerpolicy="no-referrer"
     />
     <link rel="icon" type="image/x-icon" href="/images/dailycat-logo.svg" />
-    <title>Dailycat | Funny Daily Cat Pictures</title>
+    <title>Dailycat | <%= pageNumber === 1 ? "Funny Daily Cat Pictures" : `Page (${pageNumber})` %></title>
     <link rel="stylesheet" href="/stylesheets/fonts.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>

@@ -3,8 +3,9 @@
 <main>
     <ul id="cat-list">
         <% data.forEach(function(cat){ %>
+            <% console.log(cat) %>
             <li class="cat-item">
-                <img class="cat-image" src="<%= cat.url %>" alt="" />
+                <img class="cat-image" src="<%= cat.url %>" alt="Cat-<%= cat.id %>" />
                 <div class="cat-data-wrapper">
                     <h2 class="cat-date"><%= cat.date %></h2>
                     <p class="cat-quote">
