@@ -42,6 +42,7 @@ ul {
   background-color: #dba39a;
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
+  max-width: 500px;
 }
 
 .cat-data-wrapper {
@@ -125,10 +126,17 @@ ul {
   z-index: 0;
 }
 
+.page a {
+  color: #dba39a;
+  text-decoration: none;
+}
+
 .btn {
   font-size: 2rem;
   cursor: pointer;
   color: #f2f2f2;
+  border: none;
+  background: no-repeat;
 }
 
 .btn:hover {
