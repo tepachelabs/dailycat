@@ -39,6 +39,17 @@ ts-node src/db/startup/insertMany
 
 ## Running the projects
 
+- Copy public folder
+
+```console
+npm run copy-public
+```
+
+- Copy views folder
+
+```console
+npm run copy-views
+```
 - Run the following command and go to your browser on `localhost:3000`.
 
 ```console
